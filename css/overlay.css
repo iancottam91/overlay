@@ -1,30 +1,5 @@
 /**== Generic Page CSS ==**/
 
-body{
-	background: #ccc;
-	background-image: url(https://cache.promotions.betfair.com/media/english_uk/images/betsportonsite_318/bg.jpg);
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-position: center center;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-h1{
-	font-size: 50px;
-	display: block;
-	text-shadow: 2px 2px 1px #1d212e;
-	margin: 0;
-	text-transform: uppercase;
-	padding: 0 0 0.45em 0.46em;
-	color: white;
-}
-.container{
-	margin: 0 auto;
-	max-width: 990px;
-	padding: 100px 10px 10px;
-}
 .red{
 	color: red;
 }
