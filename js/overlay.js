@@ -1,13 +1,20 @@
-$( document ).ready(function() {
-    $('body').append($('<div>',{
-        class:'overlay modal-close hide'
-    }));
+// $( document ).ready(function() {
+//     $('body').append($('<div>',{
+//         class:'overlay modal-close hide'
+//     }));
 
-    $('.modal-close, .modal-open').on('click',function(){
-		$('.overlay').toggleClass("hide");
-		$('.overlay-message').toggleClass("hide");		
-    });
-});
+//     $('.modal-open').on('click',function(){
+//         var target = $(this).attr('data-target');
+//         $('#' + target + ', .overlay').toggleClass("hide");
+
+//         console.log(target);
+//     });
+
+//     $('.modal-close').on('click',function(){
+// 		$('.overlay').toggleClass("hide");
+// 		$('.overlay-message').addClass("hide");		
+//     });
+// });
 
 // $.fn.greenify = function() {
 //     this.css( "color", "green" );
@@ -27,23 +34,39 @@ $( document ).ready(function() {
 
 (function ( $ ) {
  
-    $.fn.greenify = function( options ) {
+    $.fn.modalise = function( options ) {
 
-    	// Parameters for the plugin
-    	var settings = $.extend({
-    		//default options - extend function allows us to override these with the options parameter.
-    		color: "#556b2f",
-    		backgroundColor: "white"
-    	}, options );
+        $('body').append($('<div>',{
+            class:'overlay modal-close hide'
+        }));
+
+        $('.modal-close').on('click',function(){
+            $('.overlay').toggleClass("hide");
+            $('.overlay-message').addClass("hide");     
+        });
+
+    	// // Parameters for the plugin
+    	// var settings = $.extend({
+    	// 	//default options - extend function allows us to override these with the options parameter.
+    	// 	color: "#556b2f",
+    	// 	backgroundColor: "white"
+    	// }, options );
         
         return this.each(function(index){
         	var t = $(this);
-        	t.append(index);
-        	t.css( "color", settings.color );
+        	t.on('click',function(){
+                var target = $(this).attr('data-target');
+                $('#' + target + ', .overlay').toggleClass("hide");
+                console.log(target);
+            });
+
         });
 
     };
  
 }( jQuery ));
 
-$( "h1" ).greenify(); 
+$( ".modal-open" ).modalise(); 
+
+
+
