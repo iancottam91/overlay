@@ -2,27 +2,36 @@
  
     $.fn.modalise = function( options ) {
 
-        $('body').append('<div class="overlay modal-close hide"></div>');
-
-        $('.modal-close').on('click',function(){
-            $('.overlay').toggleClass("hide");
-            $('.overlay-message').addClass("hide");
-            console.log('click');     
+        // Add and initialise the overlay background 
+        $('body').append('<div class="overlay modal-close hide"></div>').find('.overlay.modal-close').on('click',function(){
+            $(this).toggleClass("hide");
+            $('.overlay-message').addClass("hide");   
         });
 
-    	// // Parameters for the plugin
-    	// var settings = $.extend({
-    	// 	//default options - extend function allows us to override these with the options parameter.
-    	// 	color: "#556b2f",
-    	// 	backgroundColor: "white"
-    	// }, options );
+    	// Options for the plugin
+    	var settings = $.extend({
+    		// Default options
+    		width: "700px",
+            closeButton: true
+    	}, options );
         
         return this.each(function(index){
-        	var t = $(this);
-        	t.on('click',function(){
-                var target = $(this).attr('data-target');
-                $('#' + target + ', .overlay').toggleClass("hide");
-                console.log(target);
+            // Dom elements
+        	var openButton = $(this),
+                targetSelector = '#' + $(this).attr('data-target');
+
+            // Add and initiate close button
+            if(settings.closeButton){
+                $(targetSelector).prepend('<a href="#" class="modal-close btn">X</a>').find('.modal-close').on('click',function(){
+                    $('.overlay').addClass("hide");
+                    $('.overlay-message').addClass("hide"); 
+                });
+            }
+
+            // Show the relevant modal window on clicking the open button
+        	openButton.on('click',function(){
+                var targetSelector = '#' + $(this).attr('data-target');
+                $(targetSelector + ', .overlay').toggleClass("hide");
             });
 
         });
