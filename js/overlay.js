@@ -1,48 +1,13 @@
-// $( document ).ready(function() {
-//     $('body').append($('<div>',{
-//         class:'overlay modal-close hide'
-//     }));
-
-//     $('.modal-open').on('click',function(){
-//         var target = $(this).attr('data-target');
-//         $('#' + target + ', .overlay').toggleClass("hide");
-
-//         console.log(target);
-//     });
-
-//     $('.modal-close').on('click',function(){
-// 		$('.overlay').toggleClass("hide");
-// 		$('.overlay-message').addClass("hide");		
-//     });
-// });
-
-// $.fn.greenify = function() {
-//     this.css( "color", "green" );
-//     return this;
-// };
-
-// (function ( $ ) {
- 
-//     var shade = "#556b2f";
- 
-//     $.fn.greenify = function() {
-//         this.css( "color", shade );
-//         return this;
-//     };
- 
-// }( jQuery ));
-
 (function ( $ ) {
  
     $.fn.modalise = function( options ) {
 
-        $('body').append($('<div>',{
-            class:'overlay modal-close hide'
-        }));
+        $('body').append('<div class="overlay modal-close hide"></div>');
 
         $('.modal-close').on('click',function(){
             $('.overlay').toggleClass("hide");
-            $('.overlay-message').addClass("hide");     
+            $('.overlay-message').addClass("hide");
+            console.log('click');     
         });
 
     	// // Parameters for the plugin
@@ -65,8 +30,6 @@
     };
  
 }( jQuery ));
-
-$( ".modal-open" ).modalise(); 
 
 
 
