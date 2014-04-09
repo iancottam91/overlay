@@ -3,9 +3,11 @@
     $.fn.modalise = function( options ) {
 
         // Add and initialise the overlay background 
-        $('body').append('<div class="overlay modal-close hide"></div>').find('.overlay.modal-close').on('click',function(){
-            $(this).toggleClass("hide");
-            $('.overlay-message').addClass("hide");   
+        $('body').append('<div class="overlay modal-close hide"></div>')
+        $('.modal-close').on('click',function(){
+            $('.overlay').toggleClass("hide");
+            $('.overlay-message').addClass("hide");
+            console.log('clicked'); 
         });
 
     	// Options for the plugin
