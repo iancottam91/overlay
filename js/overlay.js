@@ -41,7 +41,7 @@
 
         });
         
-        // Remove overlay and message
+        // Hide overlay and message
         function hideOverlay(){
             overlay.addClass("hide");
             overlayMessage.addClass("hide"); 
